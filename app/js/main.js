@@ -14,4 +14,11 @@ $(function () {
 		autoplay: true
 	})
 
+	//MixItUp - делаем калерею по фильтрам и категориям 
+	var mixer = mixitup('.gallery__inner', {
+		load: {
+			filter: '.living'
+		}
+	});
+
 })
