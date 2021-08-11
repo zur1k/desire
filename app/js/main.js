@@ -13,6 +13,13 @@ $(function () {
 		fade: true,
 		autoplay: true
 	})
+	$('.contact-slider').slick({
+		slidesToShow: 10,
+		slidesToScroll: 10,
+		dots: true,
+		arrows: false,
+
+	})
 
 	//MixItUp - делаем калерею по фильтрам и категориям 
 	var mixer = mixitup('.gallery__inner', {
