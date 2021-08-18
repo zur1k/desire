@@ -177,7 +177,7 @@
 	box-shadow: -2px 3px 17px 9px #000;
 	padding-top: 40px;
 	transition: all 0.5s;
-	z-index: 5;
+	z-index: 15;
 	&.rightside-menu--close {
 		transform: translateX(130%);
 	}
@@ -229,7 +229,7 @@
 	background-color: rgba(#dfdfdf, 0.5);
 	padding: 13px 14px;
 	position: relative;
-	z-index: 999;
+	z-index: 10;
 	&__list {
 		display: flex;
 	}
@@ -508,8 +508,6 @@
 		margin-left: 13px;
 		color: $title;
 		@extend %title-font;
-	}
-	&__text {
 	}
 }
 
@@ -815,7 +813,6 @@
 		min-height: 125px;
 		resize: none;
 		margin-bottom: 20px;
-
 		width: 100%;
 		&::placeholder {
 			color: #a1a1a1;
@@ -914,7 +911,94 @@
 	&__social-item {
 		margin-right: 20px;
 	}
+	&__items {
+		max-width: 730px;
+	}
+	&__item {
+		margin-bottom: 80px;
+	}
+	&__item-img {
+		max-width: 730px;
+	}
+	&__item-info {
+		padding: 25px 0 10px;
+		font-weight: 600;
+		font-size: 14px;
+		color: #707070;
+		a {
+			color: inherit;
+		}
+	}
+	&__item-title {
+		font-size: 24px;
+		line-height: 38px;
+		margin-bottom: 6px;
+		color: $title;
+		@extend %title-font;
+	}
+	&__blockquote {
+		background: rgba(233, 233, 233, 0.5);
+		margin-bottom: 50px;
+		padding: 54px 64px;
+		font-weight: 300;
+		font-style: italic;
+		text-align: center;
+		font-size: 24px;
+		line-height: 38px;
+	}
+	&__blockquote-author {
+		font-size: 16px;
+		line-height: 22px;
+		font-style: normal;
+		color: $title;
+		@extend %title-font;
+		margin-top: 23px;
+		padding-top: 23px;
+		position: relative;
+		&::before {
+			content: "";
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 0;
+			background: #6d7278;
+			border-radius: 1px;
+			height: 1px;
+			width: 200px;
+			margin: 0 auto;
+		}
+	}
+	&__item-popup {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
 }
+.article-popup {
+	&__box {
+		position: relative;
+	}
+}
+.article-slider {
+	&__arrow {
+		padding: 0;
+		border: none;
+		background-color: transparent;
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		z-index: 10;
+		cursor: pointer;
+	}
+	&__arrowleft {
+		left: 16px;
+	}
+	&__arrowright {
+		right: 16px;
+	}
+}
+
 .recent-posts {
 	margin-bottom: 40px;
 	&__title {
@@ -963,5 +1047,212 @@
 		position: absolute;
 		right: 13px;
 		top: 10px;
+	}
+}
+
+.pagination {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	&__list {
+		display: flex;
+	}
+	&__list-item {
+		margin: 0 6px;
+	}
+	&__arrow {
+		margin: 0 6px;
+	}
+	&__arrow--disabled {
+		opacity: 0;
+		pointer-events: none;
+	}
+	&__list-num {
+		font-weight: 600;
+		font-size: 14px;
+		color: #707070;
+	}
+	&__list-num--active {
+		color: $title;
+	}
+}
+
+.blog-one__item {
+	p {
+		margin-bottom: 40px;
+	}
+	blockquote {
+		font-size: 24px;
+		font-weight: 300;
+		font-style: italic;
+		color: $title;
+		margin-bottom: 30px;
+		padding-bottom: 40px;
+	}
+	.blog__blockquote-author::before {
+		margin-right: 0;
+		margin-left: 0;
+	}
+}
+
+.blog-one {
+	&__tags {
+		margin-bottom: 30px;
+	}
+	&__tags-title {
+		color: $title;
+		@extend %title-font;
+		font-size: 20px;
+		line-height: 31px;
+		margin-bottom: 15px;
+	}
+	&__tags-link {
+		margin-bottom: 10px;
+		display: inline-block;
+		margin-right: 23px;
+		padding: 0 16px;
+		color: #8f8d8d;
+		font-size: 14px;
+		font-weight: 600;
+		border: 1px solid rgba(#454647, 0.5);
+		border-radius: 14px;
+	}
+	&__links {
+		padding: 40px 0 30px;
+		border-top: 1px solid #dfdfdf;
+		border-bottom: 1px solid #dfdfdf;
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 35px;
+	}
+	&__link {
+		width: 243px;
+		position: relative;
+		color: #707070;
+		font-size: 14px;
+		font-weight: 600;
+		padding-left: 44px;
+		&::before {
+			content: "";
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			width: 12px;
+			height: 23px;
+		}
+	}
+	&__link-prev {
+		padding-left: 44px;
+		&::before {
+			background-image: url(../images/arrow-prev.svg);
+			left: 0;
+		}
+	}
+	&__link-next {
+		padding-right: 44px;
+		text-align: right;
+		&::before {
+			background-image: url(../images/arrow-next.svg);
+			right: 0;
+		}
+	}
+	&__comments {
+		margin-bottom: 40px; /// пришлось написать так как какой-то баг с .blog-one__item p . не работает так как на гайду
+	}
+	&__comments-title {
+		color: $title;
+		@extend %title-font;
+		line-height: 31px;
+		font-size: 20px;
+		margin-bottom: 40px;
+	}
+	&__comments-item {
+		display: flex;
+		justify-content: space-between;
+		align-items: start;
+	}
+	&__comments-avatar {
+		width: 64px;
+		height: 64px;
+		object-fit: cover;
+		border-radius: 50%;
+		margin-right: 13px;
+	}
+	&__reply {
+		background-color: transparent;
+		margin-left: 5px;
+		border: none;
+		padding: 0;
+		font-size: 14px;
+		font-weight: 600;
+		color: #707070;
+	}
+	&__comments-name {
+		color: $title;
+		@extend %title-font;
+		line-height: 23px;
+	}
+	&__comments-date {
+		margin-bottom: 10px;
+		font-size: 14px;
+		color: #a1a1a1;
+	}
+	&__form {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+	&__form-title {
+		margin-bottom: 25px;
+		color: $title;
+		@extend %title-font;
+		line-height: 23px;
+	}
+	&__form-textarea {
+		border: 1px solid #dfdfdf;
+		border-radius: 24px;
+		padding: 14px 17px;
+		min-height: 125px;
+		resize: none;
+		margin-bottom: 12px;
+		width: 100%;
+		&::placeholder {
+			color: #a1a1a1;
+			font-size: 16px;
+			font-family: "Open Sans", sans-serif;
+			font-size: 16px;
+			line-height: 27px;
+			font-weight: 400;
+		}
+	}
+	&__form-input {
+		border: 1px solid #dfdfdf;
+		border-radius: 20px;
+		padding: 6px 17px;
+		margin-bottom: 20px;
+		width: 48%;
+		&::placeholder {
+			color: #a1a1a1;
+			font-size: 16px;
+			font-family: "Open Sans", sans-serif;
+			font-size: 16px;
+			line-height: 27px;
+			font-weight: 400;
+		}
+	}
+	&__label {
+		margin-bottom: 20px;
+		width: 100%;
+		font-size: 14px;
+		color: #a1a1a1;
+	}
+	&__form-btn {
+		border: none;
+		background-color: $title;
+		color: #fffff0;
+		font-weight: 600;
+		border-radius: 21px;
+		padding: 6px 60px;
+		cursor: pointer;
 	}
 }
