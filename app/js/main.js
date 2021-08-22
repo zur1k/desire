@@ -10,6 +10,11 @@ $(function () {
 	$('.header__btn-menu').on('click', function () {
 		$('.menu').toggleClass('menu--open')
 	})
+	//вставляем  эелемент в другой блок для адаптации. чтоб соблюдать правильный порядок. (изначально был works-path__items-box с 2мя item, и отдельно еще элемент works-path__item--measuring  )  - для правильного порядка через метод флекс бокс объединили в один див
+
+	if ($(window).width() < 651) {
+		$('.works-path__item--measuring').appendTo($('.works-path__items-box'));
+	};
 
 	//slick-slider 
 	$('.top__slider').slick({
